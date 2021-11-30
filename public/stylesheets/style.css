@@ -1,8 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Lucida Grande", Helvetica, Arial, san-serif;
+}
+a {
+  color: #00b7ff;
+}
+.nav {
+  display: flex;
+  list-style: none;
+  margin-bottom: 40px;
+}
+.nav-item {
+  flex-grow: 1;
+}
+.nav.item_link {
+  display: block;
+
+  text-align: center;
+  padding: 10px 0;
+  background-color: antiquewhite;
 }
 
-a {
-  color: #00B7FF;
-}

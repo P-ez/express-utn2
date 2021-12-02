@@ -5,7 +5,9 @@ const db = require('../models');
 // Esto es una función anónima de tipo arrow function guardada en una variable llamada getBooks... por lo tanto: es una función llamada getBooks
 const getBooks = async () => {
     // Llamo a la DB
-    const books = await db.libro.findAll().then(result => {
+    const books = await db.libro.findAll({
+        include: db.autor
+    }).then(result => {
         return result;
     });
 

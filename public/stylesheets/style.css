@@ -3,13 +3,16 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, san-serif;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+
 a {
-  color: #00b7ff;
+  color: #00B7FF;
 }
+
 .nav {
   display: flex;
   list-style: none;
@@ -18,11 +21,12 @@ a {
 .nav-item {
   flex-grow: 1;
 }
-.nav.item_link {
+.nav-item_link {
   display: block;
-
   text-align: center;
   padding: 10px 0;
   background-color: antiquewhite;
 }
-
+.nav-item_link:hover {
+  color: black;
+}

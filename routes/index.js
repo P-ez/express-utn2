@@ -25,11 +25,17 @@ router.get("/libros", async (req, res) => {
   const books = await api.getBooks();
 
   // Devolver el JSON con los libros recibidos
-  res.send(books);
+  res.render('pages/libros',{books});
 });
 
 router.get("/libro/:id", async (req, res) => {
-  const books = await api.getBookById(req.params.id);
-  res.send(books);
+  const book = await api.getBookById(req.params.id);
+  
+  res.render('pages/libro',{book});
 });
+
+
+
+
+
 module.exports = router;

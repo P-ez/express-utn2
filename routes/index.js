@@ -8,6 +8,15 @@ const api = require("../api");
 router.get("/", function (req, res, next) {
   res.render("index", { title: "Express" });
 });
+/* GET /resultados age */
+router.get('/resultados', async (req,res)=>{
+  /*console.log(req.query);
+  res.send('Vas bien');*/
+  const {titulo}=req.query;
+
+  const results = await api.searchByTitle(titulo);
+  res.send(results);
+  });
 
 /* GET nosotros page */
 router.get("/nosotros", (req, res) => {

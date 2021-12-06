@@ -9,14 +9,18 @@ router.get("/", function (req, res, next) {
   res.render("index", { title: "Express" });
 });
 /* GET /resultados age */
-router.get('/resultados', async (req,res)=>{
+router.get("/resultados", async (req, res) => {
   /*console.log(req.query);
   res.send('Vas bien');*/
-  const {titulo}=req.query;
+  const { titulo } = req.query;
 
   const results = await api.searchByTitle(titulo);
   res.send(results);
-  });
+});
+
+router.get("/agregar", (req, res) => {
+  res.render("pages/agregar");
+});
 
 /* GET nosotros page */
 router.get("/nosotros", (req, res) => {
@@ -34,17 +38,13 @@ router.get("/libros", async (req, res) => {
   const books = await api.getBooks();
 
   // Devolver el JSON con los libros recibidos
-  res.render('pages/libros',{books});
+  res.render("pages/libros", { books });
 });
 
 router.get("/libro/:id", async (req, res) => {
   const book = await api.getBookById(req.params.id);
-  
-  res.render('pages/libro',{book});
+
+  res.render("pages/libro", { book });
 });
-
-
-
-
 
 module.exports = router;

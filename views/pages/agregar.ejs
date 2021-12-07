@@ -7,5 +7,22 @@
   <body>
     <%- include('../partials/nav.ejs') %>
     <h1>Agregar libro</h1>
+    <form action="/agregar-libro" method="POST">
+      <label>
+        Título:
+        <input type="text" name="titulo" />
+      </label>
+      <label>
+        Precio:
+        <input type="number" name="precio" /> </label
+      ><br />
+      <label for="autor">Autor</label>
+      <select id="autor">
+        <option></option>
+
+       
+      </select>
+      <input type="submit" value="Enviar">
+    </form>
   </body>
 </html>

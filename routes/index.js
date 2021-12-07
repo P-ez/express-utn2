@@ -18,7 +18,9 @@ router.get("/resultados", async (req, res) => {
   res.send(results);
 });
 
-router.get("/agregar", (req, res) => {
+router.get("/agregar", async (req, res) => {
+const authors=await api.getAuthors();
+console.log(authors)
   res.render("pages/agregar");
 });
 

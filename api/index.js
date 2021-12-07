@@ -19,6 +19,13 @@ const getBooks = async () => {
   return books;
 };
 
+const getAuthors = async () => {
+  const authors = await db.autor.findAll().then(result => {
+    return result;
+  });
+  return authors;
+};
+
 const getBookById = async (id) => {
   console.log("EL ID ES " + id);
 
@@ -36,17 +43,17 @@ const searchByTitle = async (titulo) => {
   const results = await db.libro
     .findAll({
       where: {
-        titulo:{
-        [Op.substring]: titulo
-        }
+        titulo: {
+          [Op.substring]: titulo,
+        },
       },
       include: db.autor,
     })
-    .then(result => {
+    .then((result) => {
       return result;
     });
 
   return results;
 };
 // Exportamos las funciones
-module.exports = { getBooks, getBookById, searchByTitle };
+module.exports = { getBooks, getBookById, searchByTitle, getAuthors };

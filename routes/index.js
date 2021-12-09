@@ -17,13 +17,21 @@ router.get("/resultados", async (req, res) => {
   const results = await api.searchByTitle(titulo);
   res.send(results);
 });
-
+/* GET agregar page*/
 router.get("/agregar", async (req, res) => {
-const authors=await api.getAuthors();
-console.log(authors)
-  res.render("pages/agregar");
+  const authors = await api.getAuthors();
+  console.log(authors);
+  res.render("pages/agregar", { authors });
 });
 
+/* POST agregar-libro page */
+router.post("/agregar-libro", async (req, res) => {
+  console.log(req.body);
+  const { titulo, precio, portada, autor } = req.body;
+  await api.addBook(titulo, precio, portada, autor);
+
+  res.send("vas bien");
+});
 /* GET nosotros page */
 router.get("/nosotros", (req, res) => {
   res.render("pages/nosotros", { title: "Nosotros" });

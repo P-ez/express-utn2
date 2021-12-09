@@ -55,5 +55,17 @@ const searchByTitle = async (titulo) => {
 
   return results;
 };
+  const addBook = async (titulo, precio, portada, autorId) => {
+    console.log("Llegó: ", titulo, precio, portada, autorId);
+    
+      const newBook = await db.libro.create({
+        titulo,
+        precio,
+        portada,
+        autorIdAutor: autorId
+      });
+      return newBook;
+      }
+
 // Exportamos las funciones
-module.exports = { getBooks, getBookById, searchByTitle, getAuthors };
+module.exports = { getBooks, getBookById, searchByTitle, getAuthors, addBook};

@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Agregar libro</title>
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-  </head>
-  <body>
-    <%- include('../partials/nav.ejs') %>
+
+<head>
+  <title>Agregar libro</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body>
+  <%- include('../partials/nav.ejs') %>
     <h1>Agregar libro</h1>
     <form action="/agregar-libro" method="POST">
       <label>
         Título:
-        <input type="text" name="titulo" />
-      </label>
+        <input type="text" name="titulo" /> </label><br />
       <label>
         Precio:
-        <input type="number" name="precio" /> </label
-      ><br />
+        <input type="number" name="precio" /> </label><br />
+      <label>
+        Portada:
+        <input type="text" name="portada" value="test" /> </label><br />
       <label for="autor">Autor</label>
-      <select id="autor">
-        <option></option>
+      <select id="autor" name="autor">
 
-       
+        <% authors.forEach(autor=>{ %> <option value="<%= autor.idAutor %>">
+            <%= autor.nombreCompleto %>
+
+          </option>
+          <% }) %>
       </select>
-      <input type="submit" value="Enviar">
+      <input type="submit" value="Agregar Libro" />
     </form>
-  </body>
+</body>
+
 </html>

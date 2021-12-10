@@ -67,5 +67,7 @@ const searchByTitle = async (titulo) => {
       return newBook;
       }
 
+
+      
 // Exportamos las funciones
 module.exports = { getBooks, getBookById, searchByTitle, getAuthors, addBook};

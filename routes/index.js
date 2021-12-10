@@ -32,6 +32,17 @@ router.post("/agregar-libro", async (req, res) => {
 
   res.send("vas bien");
 });
+/* Get Agregar-autor page */
+router.get("/agregar-autor", (req, res) => {
+  res.render("pages/agregar-autor");
+});
+
+/* POST Agregar-autor page */
+router.post("/agregar-autor", (req, res) => {
+  console.log("El usuario tipeo " + req.body.nombreCompleto);
+  res.send("SUCCESS");
+});
+
 /* GET nosotros page */
 router.get("/nosotros", (req, res) => {
   res.render("pages/nosotros", { title: "Nosotros" });

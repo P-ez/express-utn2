@@ -38,9 +38,9 @@ router.get("/agregar-autor", (req, res) => {
 });
 
 /* POST Agregar-autor page */
-router.post("/agregar-autor", (req, res) => {
-  console.log("El usuario tipeo " + req.body.nombreCompleto);
-  res.send("SUCCESS");
+router.post("/agregar-autor", async (req, res) => {
+await api.addAuthor(req.body.nombreCompleto);
+res.send('Success');
 });
 
 /* GET nosotros page */

@@ -12,7 +12,7 @@
       <% books.forEach(book=>{ %>
       <li class="lista-item">
         <a href="/libro/<%= book.idLibro %>" class="lista-item_link"
-          ><img src="/images/gatito.jpg" class="lista-item_img" alt="" />
+          ><img src="<%= book.portada %>" class="lista-item_img" alt="" />
           <h2 class="item-lista_titulo"><%= book.titulo%></h2></a
         >
       </li>

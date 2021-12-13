@@ -20,7 +20,7 @@ const getBooks = async () => {
 };
 
 const getAuthors = async () => {
-  const authors = await db.autor.findAll().then(result => {
+  const authors = await db.autor.findAll().then((result) => {
     return result;
   });
   return authors;
@@ -55,19 +55,32 @@ const searchByTitle = async (titulo) => {
 
   return results;
 };
-  const addBook = async (titulo, precio, portada, autorId) => {
-    console.log("Llegó: ", titulo, precio, portada, autorId);
-    
-      const newBook = await db.libro.create({
-        titulo,
-        precio,
-        portada,
-        autorIdAutor: autorId
-      });
-      return newBook;
-      }
+const addBook = async (titulo, precio, portada, autorId) => {
+  console.log("Llegó: ", titulo, precio, portada, autorId);
 
+  const newBook = await db.libro.create({
+    titulo,
+    precio,
+    portada,
+    autorIdAutor: autorId,
+  });
+  return newBook;
+};
+const addAuthor = async (nombreCompleto) => {
+  console.log("recibi " + nombreCompleto);
+  const newAuthor = await db.autor.create({
+    nombreCompleto,
 
-      
+  });
+  return newAuthor;
+};
+
 // Exportamos las funciones
-module.exports = { getBooks, getBookById, searchByTitle, getAuthors, addBook};
+module.exports = {
+  addAuthor,
+  getBooks,
+  getBookById,
+  searchByTitle,
+  getAuthors,
+  addBook,
+};
